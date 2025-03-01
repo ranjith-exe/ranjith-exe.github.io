@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="" />
+    <title>Ranjith Govindasamy</title>
+
+    <!-- CDN for Remix icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <link href="/src/index.css" rel="stylesheet" />
+
+    <!-- Add your Meta tags here -->
+    <meta name="description" content="Tailwind CSS Portfolio website" />
+    <meta
+      name="keywords"
+      content="Tailwind CSS, Portfolio, HTML, CSS, Portfolio Website"
+    />
+    <meta name="author" content="Ranjith Govindasamy" />
+  </head>
+
+  <body
+    class="relative flex flex-col items-center animate-gradient dark:bg-[#121212] font-poppins"
+  >
+    <!-- navbar component -->
+    <nav
+      class="fixed backdrop-blur-sm drop-shadow-2xl border border-white/20 shadow-white/10 w-full flex flex-row justify-center z-20"
+    >
+      <div class="flex flex-row justify-between items-center w-[72rem] p-4">
+        <div class="flex text-black dark:text-white">
+          <h4 class="text-4xl">RG</h4>
+        </div>
+        <div
+          class="flex flex-row justify-end md:justify-between w-full md:w-auto gap-4 md:gap-10"
+        >
+          <!-- Links component - Visible on large screens -->
+          <ul
+            class="hidden text-black md:flex flex-row items-center text-sm md:text-base gap-4 md:gap-10 bg-white/30 backdrop-blur-lg border border-white/30 dark:border-gray-600 dark:bg-[#121212]/30 dark:text-white rounded-tl-full rounded-tr-none rounded-bl-none rounded-br-full px-6 md:px-10 w-auto h-12 md:h-16"
+          >
+            <li><a href="#" class="hover:text-sky-300">Home</a></li>
+            <li><a href="#about" class="hover:text-sky-300">About</a></li>
+            <li><a href="#work" class="hover:text-sky-300">Work</a></li>
+            <li>
+              <a href="#contact" class="hover:text-sky-300">Contact</a>
+            </li>
+          </ul>
+
+          <div class="relative">
+            <!-- Mobile Menu -->
+            <ul
+              id="menu-list"
+              class="sm:hidden text-black fixed backdrop-blur-sm bg-white/30 md:hidden -top-80 right-0 flex-col items-center text-sm md:text-base gap-4 md:gap-10 dark:border-gray-600 dark:text-white rounded-sm p-6 md:px-10 w-full h-auto dark:bg-[#121212]/30 border border-white/30 transition-all duration-500 ease-out"
+            >
+              <li><a href="#" class="hover:text-sky-300">Home</a></li>
+              <li><a href="#about" class="hover:text-sky-300">About</a></li>
+              <li><a href="#work" class="hover:text-sky-300">Work</a></li>
+              <li>
+                <a href="#contact" class="hover:text-sky-300">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-6xl dark:text-white text-gray-900">
+      <!-- Home section -->
+      <section
+        class="flex flex-col w-full h-auto min-h-screen justify-center relative px-6 md:px-4"
+      >
+        <div
+          class="flex flex-col-reverse md:flex-row flex-wrap gap-10 md:gap-0"
+        >
+          <div
+            class="w-full md:w-3/5 flex flex-col justify-center items-start dark:text-white"
+          >
+            <h1 class="text-4xl md:text-5xl font-bold">
+              Hey there, I'm <span class="text-sky-400">Ranjith!</span>
+            </h1>
+            <h2 class="text-lg md:text-2xl my-2 md:my-6">
+              <div id="typewriter-container" class="relative inline-block">
+                <span id="textanimation"></span>
+                <span id="cursor" class="text-sky-300">|</span>
+              </div>
+            </h2>
+            <p
+              class="text-sm md:text-base dark:text-neutral-300 text-neutral-600"
+            >
+              Passionate Full Stack Developer crafting seamless digital
+              experiences.
+            </p>
+            <button
+              aria-label="download"
+              class="mt-10 flex flex-row items-center gap-2 border border-gray-400 dark:border-gray-600 py-4 px-8 hover:border-sky-300 rounded-full hover:bg-gray-600 hover:text-white transition-all ease-in-out duration-300"
+            >
+              Download CV
+              <i class="ri-arrow-right-up-line ri-xl"></i>
+            </button>
+          </div>
+
+          <style>
+            /* Container must be relative for absolute positioning of the cursor */
+            #typewriter-container {
+              font-family: monospace;
+              white-space: nowrap;
+              width: 30px;
+              font-size: 16px;
+            }
+
+            /* Cursor styling with a blinking animation */
+            #cursor {
+              position: absolute;
+              animation: blink 0.7s infinite;
+            }
+
+            @keyframes blink {
+              0%,
+              100% {
+                opacity: 1;
+              }
+
+              50% {
+                opacity: 0;
+              }
+            }
+          </style>
+
+          <script>
+            const fullText = "A Full Stack Developer and Designer";
+            let currentIndex = 0;
+            let typing = true; // true for typing phase, false for erasing phase
+            const typingSpeed = 60; // time (ms) per letter update for smooth animation
+            const pauseAfterTyping = 1000; // pause when fully typed (in ms)
+            const pauseAfterErasing = 500; // pause when fully erased (in ms)
+            let pauseTimer = 0;
+            let lastTimestamp = null;
+
+            const textEl = document.getElementById("textanimation");
+            const cursorEl = document.getElementById("cursor");
+
+            // Reposition the cursor at the end of the current text
+            function updateCursorPosition() {
+              // The offsetWidth of the text element gives its rendered width in pixels
+              const width = textEl.offsetWidth;
+              cursorEl.style.left = width + "px";
+            }
+
+            function animate(timestamp) {
+              if (!lastTimestamp) lastTimestamp = timestamp;
+              const delta = timestamp - lastTimestamp;
+
+              if (typing) {
+                if (currentIndex < fullText.length) {
+                  if (delta >= typingSpeed) {
+                    currentIndex++;
+                    textEl.textContent = fullText.substring(0, currentIndex);
+                    updateCursorPosition();
+                    lastTimestamp = timestamp;
+                  }
+                } else {
+                  // Fully typed; pause before erasing
+                  pauseTimer += delta;
+                  if (pauseTimer >= pauseAfterTyping) {
+                    typing = false;
+                    pauseTimer = 0;
+                    lastTimestamp = timestamp;
+                  }
+                }
+              } else {
+                if (currentIndex > 0) {
+                  if (delta >= typingSpeed) {
+                    currentIndex--;
+                    textEl.textContent = fullText.substring(0, currentIndex);
+                    updateCursorPosition();
+                    lastTimestamp = timestamp;
+                  }
+                } else {
+                  // Fully erased; pause before typing again
+                  pauseTimer += delta;
+                  if (pauseTimer >= pauseAfterErasing) {
+                    typing = true;
+                    pauseTimer = 0;
+                    lastTimestamp = timestamp;
+                  }
+                }
+              }
+
+              requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+          </script>
+
+          <div
+            class="w-full md:w-2/5 flex flex-row justify-center items-center"
+          >
+            <img
+              class="brightness-125 rounded-full drop-shadow-xl grayscale hover:grayscale-0 transform transition-all duration-1000"
+              src="./src/assets/RanjithGovindasamy.png"
+              alt="Ranjith Govindasamy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="w-full py-10 px-6 md:px-4" id="about">
+        <h1 class="text-4xl font-semibold">About</h1>
+        <p class="mt-10 dark:text-neutral-300 text-neutral-600">
+          I'm a passionate full-stack developer with a solid foundation in
+          computer science. Proficient in the LAMP stack, Node.js, Express,
+          WebSockets, and CRUD operations, I specialize in creating dynamic
+          websites, CRMs, e-commerce platforms, and web applications. I thrive
+          on connecting front-end and back-end technologies to deliver seamless
+          user experiences. Outside of coding, I contribute to open-source
+          projects and stay up-to-date with the latest tech trends to
+          continuously evolve my skills.
+        </p>
+        <div class="flex flex-row justify-start gap-2 flex-wrap">
+          <ul class="text-sm flex flex-row gap-2 flex-wrap mt-10">
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-black transition-all duration-300 ease-in-out"
+            >
+              HTML
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              CSS
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Bootstrap
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Tailwind CSS
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              JavaScript
+            </li>
+
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              React
+            </li>
+
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Express
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Node
+            </li>
+
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              MySQL
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Figma
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Php
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Cpanel
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Postman
+            </li>
+            <li
+              class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 ease-in-out"
+            >
+              Github
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Work Experience section -->
+      <section class="w-full py-10">
+        <div class="mb-5 px-6 md:px-4">
+          <h1 class="text-4xl font-semibold mb-5">Work Experience</h1>
+        </div>
+        <div class="flex flex-col p-6 md:p-4">
+          <div class="flex flex-row justify-between">
+            <div>
+              <h2 class="text-2xl font-medium mb-2">AmbisGroup</h2>
+              <p
+                class="text-base font-medium text-gray-700 dark:text-gray-200 mb-3"
+              >
+                Fullstack WebDeveloper
+              </p>
+            </div>
+            <p>July 2021 - Now</p>
+          </div>
+          <ul
+            class="mt-2 text-base flex space-y-5 flex-col list-disc list-outside px-4 font-light max-w-4xl dark:text-neutral-300 text-neutral-600"
+          >
+            <li>
+              Working as a front-end and back-end developer for jewelley and
+              Rehab and wellness center web application.
+            </li>
+            <li>
+              Maintaing and adding new features to an Application Portal for an
+              Webapp. Tech stack includes: Php, Mysql, JavaScript, jQuery,
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Works section -->
+      <section class="w-full py-10" id="work">
+        <div class="mb-5 px-6 md:px-4">
+          <h1 class="text-4xl font-semibold mb-5">Works</h1>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10 bg-white/50 p-2 md:p-10 rounded-2xl"
+        >
+          <!-- Card 1: Nivsjewels -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (68).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="NivsJewels Jewellery"
+            />
+            <h1 class="text-xl font-medium mt-4">Nivsjewels</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Reactjs & Php and MySQL
+            </p>
+            <a
+              href="https://nivsjewels.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              nivsjewels.com
+            </a>
+          </div>
+
+          <!-- Card 2: AmbisGroup -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (69).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="AmbisGroup"
+            />
+            <h1 class="text-xl font-medium mt-4">AmbisGroup</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Bootstrap, JavaScript, jQuery php & mysql
+            </p>
+            <a
+              href="https://ambisgroup.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              ambisgroup.in
+            </a>
+          </div>
+
+          <!-- Card 3: Utsarvajewels -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (70).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Utsarvajewels"
+            />
+            <h1 class="text-xl font-medium mt-4">Utsarvajewels</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Bootstrap, JavaScript, jQuery php & mysql
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              utsarvajewels.com
+            </a>
+          </div>
+
+          <!-- Card 4: Saayal Events -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (71).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Saayal Events"
+            />
+            <h1 class="text-xl font-medium mt-4">Saayal Events</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Bootstrap, JavaScript, jQuery php & mysql
+            </p>
+            <a
+              href="https://saayal.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              saayal.in
+            </a>
+          </div>
+
+          <!-- Card 5: Lotushealth -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (72).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Lotushealth"
+            />
+            <h1 class="text-xl font-medium mt-4">Lotushealth</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Bootstrap, JavaScript, jQuery php & mysql
+            </p>
+            <a
+              href="https://lotushealth.life"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              lotushealth.life
+            </a>
+          </div>
+
+          <!-- Card 6: Sheetal PMS (webapp) -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (73).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Sheetal PMS (webapp)"
+            />
+            <h1 class="text-xl font-medium mt-4">Sheetal PMS (webapp)</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Linux, Apache, Tailwindcss, JavaScript, jQuery php & mysql
+            </p>
+          </div>
+
+          <!-- Card 7: Hashchat (personal chatapp) -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (74).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Hashchat (personal chatapp)"
+            />
+            <h1 class="text-xl font-medium mt-4">
+              Hashchat (personal chatapp)
+            </h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Nodejs & Expressjs, React, Socket.io, MySQL
+            </p>
+          </div>
+
+          <!-- Card 8: Hashday.in -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (75).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Hashday.in"
+            />
+            <h1 class="text-xl font-medium mt-4">Hashday.in</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Js, jQuery, php, MySQL
+            </p>
+            <a
+              href="https://hashday.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              hashday.in
+            </a>
+          </div>
+
+          <!-- Card 9: Techvedhu -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (76).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="Techvedhu"
+            />
+            <h1 class="text-xl font-medium mt-4">Techvedhu</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Reactjs, Tailwindcss, Php, MySQL
+            </p>
+            <a
+              href="https://techvedhu.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              techvedhu.com
+            </a>
+          </div>
+
+          <!-- Card 10: sunscientificcompany -->
+          <div
+            class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer"
+          >
+            <img
+              src="./src/assets/works/Screenshot (77).png"
+              class="rounded-lg group-hover:blur-none transition-all duration-300"
+              loading="lazy"
+              alt="sunscientificcompany"
+            />
+            <h1 class="text-xl font-medium mt-4">sunscientificcompany</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Html, Css, Js & jQuery, Php, MySQL
+            </p>
+            <a
+              href="https://sunscientificcompany.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 flex flex-row items-center text-sm gap-2 rounded-full hover:text-sky-300"
+            >
+              <i class="ri-links-fill"></i>
+              sunscientificcompany.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- What I Offer Section -->
+      <section class="w-full py-10">
+        <div class="mb-5 px-6 md:px-4">
+          <h1 class="text-4xl font-semibold mb-5">What I Offer</h1>
+        </div>
+        <div
+          class="flex flex-col md:flex-row justify-between space-y-5 flex-wrap"
+        >
+          <!-- High-Quality, Custom Websites -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-code-box-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">Custom Website Solutions</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Get a website tailored to your business needs, built for speed,
+              security, and scalability.
+            </p>
+          </div>
+
+          <!-- Reliable & Ongoing Support -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-customer-service-2-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">
+              Reliable Support & Maintenance
+            </h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Stay worry-free with continuous updates, security patches, and
+              technical assistance.
+            </p>
+          </div>
+
+          <!-- On-Time & Efficient Delivery -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-timer-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">On-Time Project Delivery</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Get your website or application launched on schedule without
+              unnecessary delays.
+            </p>
+          </div>
+
+          <!-- Business Growth & Technical Solutions -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-lightbulb-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">Smart Business Solutions</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Optimize your operations with custom-built tools, automation, and
+              seamless integrations.
+            </p>
+          </div>
+
+          <!-- Mobile & SEO-Friendly Websites -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-smartphone-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">Mobile & SEO Optimized</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Ensure your website ranks well on Google and works smoothly on all
+              devices.
+            </p>
+          </div>
+
+          <!-- Secure & Scalable Growth -->
+          <div class="flex flex-col items-start w-full md:w-1/3 p-6 md:p-4">
+            <i class="ri-shield-keyhole-line ri-3x text-sky-300"></i>
+            <h1 class="text-xl font-medium mt-4">Secure & Scalable Websites</h1>
+            <p class="text-sm mt-2 dark:text-neutral-300 text-neutral-600">
+              Future-proof your business with a highly secure and scalable
+              online presence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section class="w-full py-10" id="contact">
+        <div class="p-6 md:p-4">
+          <h1 class="text-4xl font-semibold mb-5">Contact</h1>
+          <p class="dark:text-neutral-300 text-neutral-600">
+            I would love to hear from you. Whether you have a question about my
+            services, want to discuss a potential project, or simply want to say
+            hello, don't hesitate to get in touch. I am here to help and excited
+            to start a conversation.
+          </p>
+        </div>
+        <div class="flex flex-col-reverse md:flex-row flex-wrap">
+          <div
+            class="w-full md:w-1/2 flex flex-col flex-wrap justify-center gap-4"
+          >
+            <div class="w-full md:w-2/3 rounded-xl p-6 flex flex-col bg- gap-4">
+              <i class="ri-mail-line ri-xl text-sky-300"></i>
+              <p>ranjithmercer@email.com</p>
+            </div>
+            <div class="w-full md:w-2/3 rounded-xl p-6 flex flex-col bg- gap-4">
+              <i class="ri-map-pin-line ri-xl text-sky-300"></i>
+              <p>Coimbatore, Tamilnadu - India.</p>
+            </div>
+          </div>
+          <form
+            id="contact-form"
+            class="flex flex-col justify-start items-start gap-4 w-full md:w-1/2 p-6 md:p-10"
+          >
+            <h2 class="font-medium text-xl">Send me a Message</h2>
+            <input
+              type="text"
+              name="name"
+              id="email"
+              class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+              placeholder="Your Name"
+            />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+              placeholder="Your Email"
+            />
+
+            <textarea
+              rows="3"
+              name="message"
+              id="message"
+              class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+              placeholder="Your Message"
+            ></textarea>
+
+            <button
+              class="flex hover:cursor-pointer flex-row items-center gap-4 px-4 py-2 bg-sky-500 text-white rounded-lg text-lg"
+              aria-label="Send"
+              type="submit"
+            >
+              Send
+              <i class="ri-send-plane-2-line"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- footer section -->
+      <footer
+        class="flex flex-col-reverse md:gap-0 gap-4 md:flex-row justify-between items-center w-full max-w-6xl border-t border-t-gray-300 py-10"
+      >
+        <p>&#169; 2023 Ranjith Govindasamy</p>
+        <div class="flex flex-row gap-2 text-xl">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-row justify-center items-center w-12 h-12 border-[1px] border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-[#222] rounded-full hover:bg-gray-600 hover:text-white hover:-translate-y-2 transition-all ease-in-out duration-300"
+          >
+            <i class="ri-facebook-line"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-row justify-center items-center w-12 h-12 border-[1px] border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-[#222] rounded-full hover:bg-gray-600 hover:text-white hover:-translate-y-2 transition-all ease-in-out duration-300"
+          >
+            <i class="ri-twitter-line"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-row justify-center items-center w-12 h-12 border-[1px] border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-[#222] rounded-full hover:bg-gray-600 hover:text-white hover:-translate-y-2 transition-all ease-in-out duration-300"
+          >
+            <i class="ri-instagram-line"></i>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-row justify-center items-center w-12 h-12 border-[1px] border-gray-300 dark:border-gray-600 hover:bg-gray-600 bg-gray-200 dark:bg-[#222] rounded-full hover:text-white hover:-translate-y-2 transition-all ease-in-out duration-300"
+          >
+            <i class="ri-youtube-line"></i>
+          </a>
+        </div>
+      </footer>
+    </main>
+    <script>
+      const form = document.getElementById("contact-form");
+      if (form) {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let formData = new FormData(e.target);
+          console.log(formData);
+          fetch(`https://hashday.in/apis/contact.php`, {
+            method: "POST",
+            body: formData,
+          })
+            .then((req) => {
+              return req.json();
+            })
+            .then((res) => {
+              if (res.success === true) {
+                alert("Thankyou for Contacting me i'll rechout you soon");
+              }
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
