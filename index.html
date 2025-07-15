@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="shortcut icon" href="/src/assets/favicon.png" />
+  <link rel="shortcut icon" href="./src/assets/favicon.ico" />
   <title>Ranjith Govindasamy | Full Stack Developer | Portfolio</title>
 
   <!-- CDN for Remix icons -->
@@ -218,67 +218,280 @@
         continuously evolve my skills.
       </p>
       <div class="flex flex-row justify-start gap-2 flex-wrap">
-        <ul class="text-sm flex flex-row gap-2 flex-wrap mt-10">
+        <!-- Flip Animation Style -->
+        <style>
+          .flip-container {
+            perspective: 1000px;
+            cursor: pointer;
+          }
+        
+          .flip-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            width: 100%;
+            height: 100%;
+          }
+        
+          .flip-container:hover .flip-inner {
+            transform: rotateY(180deg);
+            cursor: pointer;
+          }
+        
+          .flip-front,
+          .flip-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        
+          .flip-back {
+            transform: rotateY(180deg);
+          }
+        </style>
+        
+        <ul class="flex flex-wrap gap-4 mt-10 items-center justify-evenly">
+          <!-- HTML -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            HTML
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/html.svg" alt="HTML" />
+              </div>
+              <div class="flip-back bg-orange-500 text-white font-semibold text-sm rounded-xl">
+                HTML
+              </div>
+            </div>
           </li>
+        
+          <!-- CSS -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            CSS
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/css.svg" alt="CSS" />
+              </div>
+              <div class="flip-back bg-blue-500 text-white font-semibold text-sm rounded-xl">
+                CSS
+              </div>
+            </div>
           </li>
+        
+          <!-- Bootstrap -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Bootstrap
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/bootstrap.svg" alt="Bootstrap" />
+              </div>
+              <div class="flip-back bg-purple-800 text-white font-semibold text-xs rounded-xl">
+                Bootstrap
+              </div>
+            </div>
           </li>
+        
+          <!-- Tailwind CSS -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Tailwind CSS
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/tailwindcss.svg" alt="Tailwind" />
+              </div>
+              <div class="flip-back bg-cyan-500 text-white font-semibold text-xs rounded-xl">
+                Tailwind
+              </div>
+            </div>
           </li>
+        
+          <!-- JavaScript -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            JavaScript
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/javascript.svg" alt="JavaScript" />
+              </div>
+              <div class="flip-back bg-yellow-400 text-black font-semibold text-xs rounded-xl">
+                JavaScript
+              </div>
+            </div>
           </li>
-
+        
+          <!-- React -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            React
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/reactjs.svg" alt="React" />
+              </div>
+              <div class="flip-back bg-cyan-600 text-white font-semibold text-xs rounded-xl">
+                React JS
+              </div>
+            </div>
           </li>
-
+        
+          <!-- Express -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Express
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/expressjs.svg" alt="Express" />
+              </div>
+              <div class="flip-back bg-gray-800 text-white font-semibold text-xs rounded-xl">
+                Express
+              </div>
+            </div>
           </li>
+        
+          <!-- Node -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Node
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/nodejs.svg" alt="Node" />
+              </div>
+              <div class="flip-back bg-green-600 text-white font-semibold text-xs rounded-xl">
+                Node JS
+              </div>
+            </div>
           </li>
-
+        
+          <!-- MySQL -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            MySQL
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/mysql.svg" alt="MySQL" />
+              </div>
+              <div class="flip-back bg-blue-700 text-white font-semibold text-xs rounded-xl">
+                MySQL
+              </div>
+            </div>
           </li>
+        
+          <!-- Figma -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Figma
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/figma.svg" alt="Figma" />
+              </div>
+              <div class="flip-back bg-pink-500 text-white font-semibold text-xs rounded-xl">
+                Figma
+              </div>
+            </div>
           </li>
+        
+          <!-- PHP -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Php
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/php.svg" alt="PHP" />
+              </div>
+              <div class="flip-back bg-indigo-700 text-white font-semibold text-xs rounded-xl">
+                PHP
+              </div>
+            </div>
           </li>
+        
+          <!-- Cpanel -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Cpanel
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/cpanel.svg" alt="Cpanel" />
+              </div>
+              <div class="flip-back bg-orange-600 text-white font-semibold text-xs rounded-xl">
+                Cpanel
+              </div>
+            </div>
           </li>
+        
+          <!-- Postman -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Postman
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/postman.svg" alt="Postman" />
+              </div>
+              <div class="flip-back bg-orange-500 text-white font-semibold text-xs rounded-xl">
+                Postman
+              </div>
+            </div>
           </li>
+        
+          <!-- GitHub -->
           <li
-            class="px-5 py-2 border border-gray-200 dark:border-gray-600 rounded-full hover:bg-sky-500 hover:text-white transition-all duration-300 ease-in-out">
-            Github
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/github.svg" alt="GitHub" />
+              </div>
+              <div class="flip-back bg-gray-900 text-white font-semibold text-xs rounded-xl">
+                GitHub
+              </div>
+            </div>
+          </li>
+        
+          <!-- Git -->
+          <li
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/git.svg" alt="Git" />
+              </div>
+              <div class="flip-back bg-red-500 text-white font-semibold text-xs rounded-xl">
+                Git
+              </div>
+            </div>
+          </li>
+        
+          <!-- Apache -->
+          <li
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/apache.svg" alt="Apache" />
+              </div>
+              <div class="flip-back bg-purple-700 text-white font-semibold text-xs rounded-xl">
+                Apache
+              </div>
+            </div>
+          </li>
+        
+          <!-- NPM -->
+          <li
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/npm.svg" alt="NPM" />
+              </div>
+              <div class="flip-back bg-red-600 text-white font-semibold text-xs rounded-xl">
+                NPM
+              </div>
+            </div>
+          </li>
+        
+          <!-- Socket.io -->
+          <li
+            class="flip-container w-24 h-24 rounded-xl shadow-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-transparent hover:shadow-xl">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img class="w-10 h-10" src="./src/assets/socketio.svg" alt="Socket.io" />
+              </div>
+              <div class="flip-back bg-black text-white font-semibold text-xs rounded-xl">
+                Socket.io
+              </div>
+            </div>
           </li>
         </ul>
+
       </div>
     </section>
 
@@ -329,7 +542,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10 bg-white/50 p-2 md:p-10 rounded-2xl">
         <!-- Card 1: Nivsjewels -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (68).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy"
             alt="NivsJewels Jewellery" />
@@ -346,7 +559,7 @@
 
         <!-- Card 2: AmbisGroup -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (69).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="AmbisGroup" />
           <h1 class="text-xl font-medium mt-4">AmbisGroup</h1>
@@ -362,7 +575,7 @@
 
         <!-- Card 3: Utsarvajewels -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (70).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="Utsarvajewels" />
           <h1 class="text-xl font-medium mt-4">Utsarvajewels</h1>
@@ -378,7 +591,7 @@
 
         <!-- Card 4: Saayal Events -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (71).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="Saayal Events" />
           <h1 class="text-xl font-medium mt-4">Saayal Events</h1>
@@ -394,7 +607,7 @@
 
         <!-- Card 5: Lotushealth -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (72).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="Lotushealth" />
           <h1 class="text-xl font-medium mt-4">Lotushealth</h1>
@@ -410,7 +623,7 @@
 
         <!-- Card 6: Sheetal PMS (webapp) -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (73).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy"
             alt="Sheetal PMS (webapp)" />
@@ -422,7 +635,7 @@
 
         <!-- Card 7: Hashchat (personal chatapp) -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (74).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy"
             alt="Hashchat (personal chatapp)" />
@@ -436,7 +649,7 @@
 
         <!-- Card 8: Hashday.in -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (75).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="Hashday.in" />
           <h1 class="text-xl font-medium mt-4">Hashday.in</h1>
@@ -452,7 +665,7 @@
 
         <!-- Card 9: Techvedhu -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (76).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy" alt="Techvedhu" />
           <h1 class="text-xl font-medium mt-4">Techvedhu</h1>
@@ -468,7 +681,7 @@
 
         <!-- Card 10: sunscientificcompany -->
         <div
-          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-[#222] rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
+          class="group flex flex-col items-start p-6 hover:-translate-y-1 hover:bg-sky-200 dark:hover:bg-gray-300 rounded-lg transition-all duration-300 ease-in-out cursor-pointer">
           <img src="/src/assets/works/Screenshot (77).png"
             class="rounded-lg group-hover:blur-none transition-all duration-300" loading="lazy"
             alt="sunscientificcompany" />
@@ -581,14 +794,14 @@
         <form id="contact-form" class="flex flex-col justify-start items-start gap-4 w-full md:w-1/2 p-6 md:p-10">
           <h2 class="font-medium text-xl">Send me a Message</h2>
           <input type="text" name="name" id="name"
-            class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+            class="block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
             placeholder="Your Name" />
           <input type="email" name="email" id="email"
-            class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+            class="block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
             placeholder="Your Email" />
 
           <textarea rows="3" name="message" id="message"
-            class="cursor-pointer block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+            class="block w-full border border-gray-300 dark:border-gray-600 rounded-xl bg-transparent py-4 px-6 text-gray-900 placeholder:text-gray-400 hover:border-gray-700 hover:dark:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
             placeholder="Your Message"></textarea>
 
           <button class="flex hover:cursor-pointer flex-row items-center gap-4 px-4 py-2 bg-sky-500 text-white rounded-lg text-lg"
@@ -645,6 +858,10 @@
                 });
             });
           }
+        </script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+          lucide.createIcons();
         </script>
         </body>
 
