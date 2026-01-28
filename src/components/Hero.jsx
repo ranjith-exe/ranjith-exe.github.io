@@ -92,7 +92,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-500 to-purple-600 blur-[50px] opacity-40 animate-pulse"></div>
             <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-sky-400 to-purple-500 blur-[20px] opacity-40"></div>
             <img
-              src="/src/assets/RanjithGovindasamy.png"
+              src="/assets/RanjithGovindasamy.png"
               alt="Ranjith Govindasamy"
               className="relative w-full h-full object-cover rounded-full border-4 border-white/10 shadow-2xl  transition-all duration-700"
             />
@@ -103,7 +103,7 @@ const Hero = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-4 -right-4 w-12 h-12 glass rounded-xl flex items-center justify-center p-2"
             >
-              <img src="/src/assets/reactjs.svg" alt="React" className="w-full h-full" />
+              <img src="/assets/reactjs.svg" alt="React" className="w-full h-full" />
             </motion.div>
 
             <motion.div
@@ -111,7 +111,7 @@ const Hero = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute bottom-8 -left-8 w-12 h-12 glass rounded-xl flex items-center justify-center p-2"
             >
-              <img src="/src/assets/nodejs.svg" alt="Node" className="w-full h-full" />
+              <img src="/assets/nodejs.svg" alt="Node" className="w-full h-full" />
             </motion.div>
           </div>
         </motion.div>

@@ -2,16 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const projects = [
-    { title: 'Nivsjewels', stack: 'Reactjs, Php, MySQL', url: 'https://nivsjewels.com', image: '/src/assets/works/Screenshot (68).png' },
-    { title: 'AmbisGroup', stack: 'Html, Css, Bootstrap, Php', url: 'https://ambisgroup.in', image: '/src/assets/works/Screenshot (69).png' },
-    { title: 'Utsarvajewels', stack: 'Html, Css, Bootstrap, Php', url: 'https://utsarvajewels.com', image: '/src/assets/works/Screenshot (70).png' },
-    { title: 'Saayal Events', stack: 'Html, Css, Bootstrap, Php', url: 'https://saayal.in', image: '/src/assets/works/Screenshot (71).png' },
-    { title: 'Lotushealth', stack: 'Html, Css, Bootstrap, Php', url: 'https://lotushealth.life', image: '/src/assets/works/Screenshot (72).png' },
-    { title: 'Sheetal PMS', stack: 'Linux, Apache, Tailwind', image: '/src/assets/works/Screenshot (73).png' },
-    { title: 'Hashchat', stack: 'Nodejs, React, Socket.io', image: '/src/assets/works/Screenshot (74).png' },
-    { title: 'Hashday.in', stack: 'Html, Css, Php, MySQL', url: 'https://hashday.in', image: '/src/assets/works/Screenshot (75).png' },
-    { title: 'Techvedhu', stack: 'Reactjs, Tailwind, Php', url: 'https://techvedhu.com', image: '/src/assets/works/Screenshot (76).png' },
-    { title: 'sunscientific', stack: 'Html, Css, Php, MySQL', url: 'https://sunscientificcompany.com', image: '/src/assets/works/Screenshot (77).png' },
+    { title: 'Nivsjewels', stack: 'Reactjs, Php, MySQL', url: 'https://nivsjewels.com', image: '/assets/works/Screenshot (68).png' },
+    { title: 'AmbisGroup', stack: 'Html, Css, Bootstrap, Php', url: 'https://ambisgroup.in', image: '/assets/works/Screenshot (69).png' },
+    { title: 'Utsarvajewels', stack: 'Html, Css, Bootstrap, Php', url: 'https://utsarvajewels.com', image: '/assets/works/Screenshot (70).png' },
+    { title: 'Saayal Events', stack: 'Html, Css, Bootstrap, Php', url: 'https://saayal.in', image: '/assets/works/Screenshot (71).png' },
+    { title: 'Lotushealth', stack: 'Html, Css, Bootstrap, Php', url: 'https://lotushealth.life', image: '/assets/works/Screenshot (72).png' },
+    { title: 'Sheetal PMS', stack: 'Linux, Apache, Tailwind', image: '/assets/works/Screenshot (73).png' },
+    { title: 'Hashchat', stack: 'Nodejs, React, Socket.io', image: '/assets/works/Screenshot (74).png' },
+    { title: 'Hashday.in', stack: 'Html, Css, Php, MySQL', url: 'https://hashday.in', image: '/assets/works/Screenshot (75).png' },
+    { title: 'Techvedhu', stack: 'Reactjs, Tailwind, Php', url: 'https://techvedhu.com', image: '/assets/works/Screenshot (76).png' },
+    { title: 'sunscientific', stack: 'Html, Css, Php, MySQL', url: 'https://sunscientificcompany.com', image: '/assets/works/Screenshot (77).png' },
 ];
 
 import TiltCard from './TiltCard';
