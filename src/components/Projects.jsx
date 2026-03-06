@@ -40,13 +40,17 @@ const Projects = () => {
                                         className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                                         loading="lazy"
                                     />
-                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <div
+                                        className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                                        style={{ transform: "translateZ(60px)" }}
+                                    >
                                         {project.url && (
                                             <a
                                                 href={project.url}
                                                 target="_blank"
-                                                rel="noreferrer"
+                                                rel="noopener noreferrer"
                                                 className="px-6 py-2 bg-sky-500 text-white rounded-full font-medium hover:bg-sky-600 transition-colors pointer-events-auto"
+                                                style={{ transform: "translateZ(10px)" }}
                                             >
                                                 Visit Site
                                             </a>

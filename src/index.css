@@ -4,7 +4,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-glass-surface: rgba(255, 255, 255, 0.05);
   --color-glass-highlight: rgba(255, 255, 255, 0.2);
@@ -25,7 +25,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   @apply selection:bg-sky-500 selection:text-white;
 }
 

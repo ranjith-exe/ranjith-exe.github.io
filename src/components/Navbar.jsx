@@ -48,7 +48,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors relative group"
+                  className="text-base font-semibold text-gray-700 dark:text-gray-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors relative group"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-500 transition-all group-hover:w-full"></span>
@@ -112,7 +112,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-sky-500 transition-colors"
+                className="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-sky-500 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}

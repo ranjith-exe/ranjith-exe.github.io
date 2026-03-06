@@ -40,13 +40,20 @@ const Contact = () => {
                         <div className="mt-8">
                             <h3 className="text-xl font-bold mb-4">Connect with me</h3>
                             <div className="flex gap-4">
-                                {['facebook', 'twitter', 'instagram', 'youtube'].map((social) => (
+                                {[
+                                    { name: 'facebook', url: '#' },
+                                    { name: 'twitter', url: '#' },
+                                    { name: 'instagram', url: 'https://www.instagram.com/ranjith.exe' },
+                                    { name: 'youtube', url: 'https://www.youtube.com/channel/UChW-YPRQUTzm_U3BkDlGrUg' }
+                                ].map((social) => (
                                     <a
-                                        key={social}
-                                        href="#"
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all hover:-translate-y-1"
                                     >
-                                        <i className={`ri-${social}-line text-xl`}></i>
+                                        <i className={`ri-${social.name}-line text-xl`}></i>
                                     </a>
                                 ))}
                             </div>
@@ -59,7 +66,7 @@ const Contact = () => {
                                 <label className="block text-sm font-medium mb-2 opacity-70">Your Name</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors"
+                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     placeholder="John Doe"
                                 />
                             </div>
@@ -67,7 +74,7 @@ const Contact = () => {
                                 <label className="block text-sm font-medium mb-2 opacity-70">Your Email</label>
                                 <input
                                     type="email"
-                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors"
+                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     placeholder="john@example.com"
                                 />
                             </div>
@@ -75,7 +82,7 @@ const Contact = () => {
                                 <label className="block text-sm font-medium mb-2 opacity-70">Message</label>
                                 <textarea
                                     rows="4"
-                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors"
+                                    className="w-full bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     placeholder="Hello! I'd like to discuss a project..."
                                 ></textarea>
                             </div>
@@ -93,14 +100,10 @@ const Contact = () => {
 export const Footer = () => {
     return (
         <footer className="border-t border-gray-200 dark:border-white/10 py-8 bg-white/5 backdrop-blur-sm">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                     © 2026 Ranjith Govindasamy. All rights reserved.
                 </p>
-                <div className="flex gap-6 text-sm text-gray-500 dark:text-gray-400">
-                    <a href="#" className="hover:text-sky-500 transition-colors">Privacy Policy</a>
-                    <a href="#" className="hover:text-sky-500 transition-colors">Terms of Service</a>
-                </div>
             </div>
         </footer>
     );
